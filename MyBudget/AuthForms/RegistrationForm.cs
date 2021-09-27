@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using MyBudget.Models;
+using MyBudget.Services;
+
 namespace MyBudget
 {
     public partial class RegistrationForm : Form
@@ -17,9 +20,46 @@ namespace MyBudget
             InitializeComponent();
         }
 
-        private void RegistrationForm_Load(object sender, EventArgs e)
+        private void RegButton_Click(object sender, EventArgs e)
         {
+            string Name = NameTextBox.Text,
+                   Password = PassTextBox.Text,
+                   RPassword = RPassTextBox.Text;
 
+            if (String.IsNullOrEmpty(Name)
+             || String.IsNullOrEmpty(Password)
+             || String.IsNullOrEmpty(RPassword))
+            {
+                MessageService.ShowError("Нужно что-нибудь ввести.");
+                return;
+            }
+
+            if(Password != RPassword)
+            {
+                MessageService.ShowError("Вы неправильно ввели пароль.");
+                return;
+            }
+
+            using(MainContext db = new MainContext())
+            {
+                if(db.Accounts.Where(c => c.Name == Name).Any())
+                {
+                    MessageService.ShowWarn("Данный аккаунт с таким именем уже есть !");
+                    return;
+                }
+
+                db.Accounts.Add(new Account()
+                {
+                    Name = Name,
+                    Password = MD5Service.Create(Password)
+                });
+
+                db.SaveChanges();
+            }
+
+            MessageService.ShowInfo("Вы успешно зарегистрировались !");
+
+            Close();
         }
     }
 }

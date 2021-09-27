@@ -35,8 +35,8 @@ namespace MyBudget
             this.RegButton = new System.Windows.Forms.Button();
             this.PassTextBox = new System.Windows.Forms.TextBox();
             this.PassLabel = new System.Windows.Forms.Label();
-            this.LoginTextBox = new System.Windows.Forms.TextBox();
-            this.LoginLabel = new System.Windows.Forms.Label();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
+            this.NameLabel = new System.Windows.Forms.Label();
             this.MainGroup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,21 +47,22 @@ namespace MyBudget
             this.MainGroup.Controls.Add(this.RegButton);
             this.MainGroup.Controls.Add(this.PassTextBox);
             this.MainGroup.Controls.Add(this.PassLabel);
-            this.MainGroup.Controls.Add(this.LoginTextBox);
-            this.MainGroup.Controls.Add(this.LoginLabel);
+            this.MainGroup.Controls.Add(this.NameTextBox);
+            this.MainGroup.Controls.Add(this.NameLabel);
             this.MainGroup.Location = new System.Drawing.Point(12, 12);
             this.MainGroup.Name = "MainGroup";
             this.MainGroup.Padding = new System.Windows.Forms.Padding(10, 5, 10, 10);
             this.MainGroup.Size = new System.Drawing.Size(246, 211);
             this.MainGroup.TabIndex = 1;
             this.MainGroup.TabStop = false;
-            this.MainGroup.Text = "Авторизация";
+            this.MainGroup.Text = "Регистрация";
             // 
             // RPassTextBox
             // 
             this.RPassTextBox.Location = new System.Drawing.Point(13, 141);
             this.RPassTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.RPassTextBox.Name = "RPassTextBox";
+            this.RPassTextBox.PasswordChar = '*';
             this.RPassTextBox.Size = new System.Drawing.Size(220, 23);
             this.RPassTextBox.TabIndex = 7;
             // 
@@ -83,12 +84,14 @@ namespace MyBudget
             this.RegButton.TabIndex = 4;
             this.RegButton.Text = "Зарегистрироваться";
             this.RegButton.UseVisualStyleBackColor = true;
+            this.RegButton.Click += new System.EventHandler(this.RegButton_Click);
             // 
             // PassTextBox
             // 
             this.PassTextBox.Location = new System.Drawing.Point(13, 90);
             this.PassTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.PassTextBox.Name = "PassTextBox";
+            this.PassTextBox.PasswordChar = '*';
             this.PassTextBox.Size = new System.Drawing.Size(220, 23);
             this.PassTextBox.TabIndex = 3;
             // 
@@ -101,22 +104,22 @@ namespace MyBudget
             this.PassLabel.TabIndex = 2;
             this.PassLabel.Text = "Пароль:";
             // 
-            // LoginTextBox
+            // NameTextBox
             // 
-            this.LoginTextBox.Location = new System.Drawing.Point(13, 39);
-            this.LoginTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
-            this.LoginTextBox.Name = "LoginTextBox";
-            this.LoginTextBox.Size = new System.Drawing.Size(220, 23);
-            this.LoginTextBox.TabIndex = 1;
+            this.NameTextBox.Location = new System.Drawing.Point(13, 39);
+            this.NameTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(220, 23);
+            this.NameTextBox.TabIndex = 1;
             // 
-            // LoginLabel
+            // NameLabel
             // 
-            this.LoginLabel.AutoSize = true;
-            this.LoginLabel.Location = new System.Drawing.Point(13, 21);
-            this.LoginLabel.Name = "LoginLabel";
-            this.LoginLabel.Size = new System.Drawing.Size(44, 15);
-            this.LoginLabel.TabIndex = 0;
-            this.LoginLabel.Text = "Логин:";
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Location = new System.Drawing.Point(13, 21);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(34, 15);
+            this.NameLabel.TabIndex = 0;
+            this.NameLabel.Text = "Имя:";
             // 
             // RegistrationForm
             // 
@@ -129,7 +132,6 @@ namespace MyBudget
             this.Name = "RegistrationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegistrationForm";
-            this.Load += new System.EventHandler(this.RegistrationForm_Load);
             this.MainGroup.ResumeLayout(false);
             this.MainGroup.PerformLayout();
             this.ResumeLayout(false);
@@ -142,8 +144,8 @@ namespace MyBudget
         private System.Windows.Forms.Button RegButton;
         private System.Windows.Forms.TextBox PassTextBox;
         private System.Windows.Forms.Label PassLabel;
-        private System.Windows.Forms.TextBox LoginTextBox;
-        private System.Windows.Forms.Label LoginLabel;
+        private System.Windows.Forms.TextBox NameTextBox;
+        private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.TextBox RPassTextBox;
         private System.Windows.Forms.Label RPassLabel;
     }
