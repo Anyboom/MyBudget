@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace MyBudget.Models
 {
-    class Account
+    class Wallet
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Password { get; set; }
-        public List<Wallet> Wallets { get; set; }
-        public Account()
+        public List<Transaction> Transactions { get; set; }
+        public int AccountId { get; set; }
+        public Account Account { get; set; }
+
+        public Wallet()
         {
-            Wallets = new List<Wallet>();
+            Transactions = new List<Transaction>();
         }
     }
 }

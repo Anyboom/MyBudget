@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace MyBudget
 {
-    class Settings
+    class Variables
     {
         public static string TitleProject = "Учет бюджета";
         public static string ConnectionString = @"Data Source=DESKTOP-J758LQV\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=MyBudget;";
-        public static Account ThisAccount = null;
+        public static int AccountId = -1;
     }
 }

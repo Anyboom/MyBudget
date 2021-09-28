@@ -55,7 +55,7 @@ namespace MyBudget
                     return;
                 }
 
-                Settings.ThisAccount = temp;
+                Variables.AccountId = temp.Id;
 
                 App.Instance.MainForm = new MainForm();
                 App.Instance.MainForm.Show();

@@ -82,6 +82,7 @@ namespace MyBudget
             this.PassTextBox.Location = new System.Drawing.Point(13, 90);
             this.PassTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.PassTextBox.Name = "PassTextBox";
+            this.PassTextBox.PasswordChar = '*';
             this.PassTextBox.Size = new System.Drawing.Size(220, 23);
             this.PassTextBox.TabIndex = 3;
             // 

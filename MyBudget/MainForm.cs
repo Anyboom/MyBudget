@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+
+using MyBudget.Models;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +19,21 @@ namespace MyBudget
         public MainForm()
         {
             InitializeComponent();
+
+            MonthComboBox.SelectedIndex = 0;
+        
+            using(MainContext db = new MainContext())
+            {
+                WalletComboBox.DataSource = db.Accounts.Include(c => c.Wallets).Where(c => c.Id == Variables.AccountId).First().Wallets;
+                WalletComboBox.DisplayMember = "Name";
+                WalletComboBox.ValueMember = "Id";
+
+            }
+        }
+
+        private void AddWalletMenuItem_Click(object sender, EventArgs e)
+        {
+            //TODO: Доделать
         }
     }
 }

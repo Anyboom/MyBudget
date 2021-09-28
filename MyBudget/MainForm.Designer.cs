@@ -30,13 +30,15 @@ namespace MyBudget
         private void InitializeComponent()
         {
             this.MainBox = new System.Windows.Forms.GroupBox();
+            this.MonthComboBox = new System.Windows.Forms.ComboBox();
+            this.MonthLabel = new System.Windows.Forms.Label();
+            this.WalletLabel = new System.Windows.Forms.Label();
+            this.WalletComboBox = new System.Windows.Forms.ComboBox();
             this.MainGrid = new System.Windows.Forms.DataGridView();
             this.MainMenu = new System.Windows.Forms.MenuStrip();
-            this.мойАккаунтToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.AccountMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.WalletMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddWalletMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).BeginInit();
             this.MainMenu.SuspendLayout();
@@ -44,10 +46,10 @@ namespace MyBudget
             // 
             // MainBox
             // 
-            this.MainBox.Controls.Add(this.comboBox2);
-            this.MainBox.Controls.Add(this.label2);
-            this.MainBox.Controls.Add(this.label1);
-            this.MainBox.Controls.Add(this.comboBox1);
+            this.MainBox.Controls.Add(this.MonthComboBox);
+            this.MainBox.Controls.Add(this.MonthLabel);
+            this.MainBox.Controls.Add(this.WalletLabel);
+            this.MainBox.Controls.Add(this.WalletComboBox);
             this.MainBox.Controls.Add(this.MainGrid);
             this.MainBox.Location = new System.Drawing.Point(12, 27);
             this.MainBox.Name = "MainBox";
@@ -55,6 +57,55 @@ namespace MyBudget
             this.MainBox.Size = new System.Drawing.Size(407, 411);
             this.MainBox.TabIndex = 0;
             this.MainBox.TabStop = false;
+            // 
+            // MonthComboBox
+            // 
+            this.MonthComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MonthComboBox.FormattingEnabled = true;
+            this.MonthComboBox.Items.AddRange(new object[] {
+            "Январь",
+            "Февраль",
+            "Март",
+            "Апрель",
+            "Май",
+            "Июнь",
+            "Июль",
+            "Август",
+            "Сентябрь",
+            "Октябрь",
+            "Ноябрь",
+            "Декабрь"});
+            this.MonthComboBox.Location = new System.Drawing.Point(278, 18);
+            this.MonthComboBox.Name = "MonthComboBox";
+            this.MonthComboBox.Size = new System.Drawing.Size(116, 23);
+            this.MonthComboBox.TabIndex = 6;
+            // 
+            // MonthLabel
+            // 
+            this.MonthLabel.AutoSize = true;
+            this.MonthLabel.Location = new System.Drawing.Point(226, 21);
+            this.MonthLabel.Name = "MonthLabel";
+            this.MonthLabel.Size = new System.Drawing.Size(46, 15);
+            this.MonthLabel.TabIndex = 5;
+            this.MonthLabel.Text = "Месяц:";
+            // 
+            // WalletLabel
+            // 
+            this.WalletLabel.AutoSize = true;
+            this.WalletLabel.Location = new System.Drawing.Point(13, 21);
+            this.WalletLabel.Name = "WalletLabel";
+            this.WalletLabel.Size = new System.Drawing.Size(60, 15);
+            this.WalletLabel.TabIndex = 3;
+            this.WalletLabel.Text = "Кошелек:";
+            // 
+            // WalletComboBox
+            // 
+            this.WalletComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.WalletComboBox.FormattingEnabled = true;
+            this.WalletComboBox.Location = new System.Drawing.Point(79, 18);
+            this.WalletComboBox.Name = "WalletComboBox";
+            this.WalletComboBox.Size = new System.Drawing.Size(141, 23);
+            this.WalletComboBox.TabIndex = 2;
             // 
             // MainGrid
             // 
@@ -68,7 +119,7 @@ namespace MyBudget
             // MainMenu
             // 
             this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.мойАккаунтToolStripMenuItem});
+            this.AccountMenuItem});
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -76,45 +127,28 @@ namespace MyBudget
             this.MainMenu.TabIndex = 1;
             this.MainMenu.Text = "menuStrip1";
             // 
-            // мойАккаунтToolStripMenuItem
+            // AccountMenuItem
             // 
-            this.мойАккаунтToolStripMenuItem.Name = "мойАккаунтToolStripMenuItem";
-            this.мойАккаунтToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
-            this.мойАккаунтToolStripMenuItem.Text = "Мой аккаунт";
+            this.AccountMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.WalletMenuItem});
+            this.AccountMenuItem.Name = "AccountMenuItem";
+            this.AccountMenuItem.Size = new System.Drawing.Size(89, 20);
+            this.AccountMenuItem.Text = "Мой аккаунт";
             // 
-            // comboBox1
+            // WalletMenuItem
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(79, 18);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(141, 23);
-            this.comboBox1.TabIndex = 2;
+            this.WalletMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddWalletMenuItem});
+            this.WalletMenuItem.Name = "WalletMenuItem";
+            this.WalletMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.WalletMenuItem.Text = "Кошелек";
             // 
-            // label1
+            // AddWalletMenuItem
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Кошелек:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(226, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Месяц:";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(278, 18);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(116, 23);
-            this.comboBox2.TabIndex = 6;
+            this.AddWalletMenuItem.Name = "AddWalletMenuItem";
+            this.AddWalletMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.AddWalletMenuItem.Text = "Добавить кошелек";
+            this.AddWalletMenuItem.Click += new System.EventHandler(this.AddWalletMenuItem_Click);
             // 
             // MainForm
             // 
@@ -144,11 +178,13 @@ namespace MyBudget
         private System.Windows.Forms.GroupBox MainBox;
         private System.Windows.Forms.DataGridView MainGrid;
         private System.Windows.Forms.MenuStrip MainMenu;
-        private System.Windows.Forms.ToolStripMenuItem мойАккаунтToolStripMenuItem;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ToolStripMenuItem AccountMenuItem;
+        private System.Windows.Forms.ComboBox MonthComboBox;
+        private System.Windows.Forms.Label MonthLabel;
+        private System.Windows.Forms.Label WalletLabel;
+        private System.Windows.Forms.ComboBox WalletComboBox;
+        private System.Windows.Forms.ToolStripMenuItem WalletMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AddWalletMenuItem;
     }
 }
 
