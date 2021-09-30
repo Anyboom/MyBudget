@@ -38,7 +38,6 @@ namespace MyBudget
             this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.AccountMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WalletMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AddWalletMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).BeginInit();
             this.MainMenu.SuspendLayout();
@@ -137,18 +136,10 @@ namespace MyBudget
             // 
             // WalletMenuItem
             // 
-            this.WalletMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddWalletMenuItem});
             this.WalletMenuItem.Name = "WalletMenuItem";
             this.WalletMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.WalletMenuItem.Text = "Кошелек";
-            // 
-            // AddWalletMenuItem
-            // 
-            this.AddWalletMenuItem.Name = "AddWalletMenuItem";
-            this.AddWalletMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.AddWalletMenuItem.Text = "Добавить кошелек";
-            this.AddWalletMenuItem.Click += new System.EventHandler(this.AddWalletMenuItem_Click);
+            this.WalletMenuItem.Text = "Мои кошельки";
+            this.WalletMenuItem.Click += new System.EventHandler(this.WalletMenuItem_Click);
             // 
             // MainForm
             // 
@@ -184,7 +175,6 @@ namespace MyBudget
         private System.Windows.Forms.Label WalletLabel;
         private System.Windows.Forms.ComboBox WalletComboBox;
         private System.Windows.Forms.ToolStripMenuItem WalletMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem AddWalletMenuItem;
     }
 }
 

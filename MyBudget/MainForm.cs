@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
+using MyBudget.Dialogs;
 using MyBudget.Models;
 
 using System;
@@ -31,9 +32,10 @@ namespace MyBudget
             }
         }
 
-        private void AddWalletMenuItem_Click(object sender, EventArgs e)
+        private void WalletMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO: Доделать
+            WalletForm temp = new WalletForm();
+            temp.ShowDialog();
         }
     }
 }

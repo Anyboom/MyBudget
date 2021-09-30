@@ -1,3 +1,6 @@
+using MyBudget.Models;
+using MyBudget.Services;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +20,21 @@ namespace MyBudget
 
             App.Instance.MainForm = new LoginForm();
 
-            Application.Run(App.Instance);
+            using (MainContext db = new MainContext())
+            {
+                if (db.Database.CanConnect() == false)
+                {
+                    MessageService.ShowError("Отсутствует подключение к базе данных !");
+
+                    Application.Exit();
+                }
+                else
+                {
+                    Application.Run(App.Instance);
+                }
+            }
+
+            
         }
     }
 }

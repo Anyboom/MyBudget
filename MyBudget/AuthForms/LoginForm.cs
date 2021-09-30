@@ -18,6 +18,8 @@ namespace MyBudget
         public LoginForm()
         {
             InitializeComponent();
+
+            
         }
 
         private void RegLinkLabel_Click(object sender, EventArgs e)
