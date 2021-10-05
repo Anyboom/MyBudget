@@ -43,7 +43,7 @@ namespace MyBudget
 
             using (MainContext db = new MainContext())
             {
-                Account temp = db.Accounts.Where(c => c.Name == Login).FirstOrDefault();
+                Account temp = db.Accounts.Where(c => c.Name == Login && c.DeletedAt == null).FirstOrDefault();
 
                 if (temp == null)
                 {

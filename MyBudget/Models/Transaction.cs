@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyBudget.Enums;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +12,7 @@ namespace MyBudget.Models
     {
         public int Id { get; set; }
         public long Total { get; set; }
-        public int TypeTransactionId { get; set; }
+        public DateTime CreatedAt { get; set; }
         public TypeTransaction TypeTransaction { get; set; }
         public int WalletId { get; set; }
         public Wallet Wallet { get; set; }

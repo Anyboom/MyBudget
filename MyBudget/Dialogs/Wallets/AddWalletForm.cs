@@ -13,12 +13,11 @@ using System.Windows.Forms;
 
 namespace MyBudget.Dialogs
 {
-    public partial class WalletForm : Form
+    public partial class AddWalletForm : Form
     {
-        public WalletForm()
+        public AddWalletForm()
         {
             InitializeComponent();
-
         }
 
         private void WalletForm_Load(object sender, EventArgs e)
@@ -35,15 +34,20 @@ namespace MyBudget.Dialogs
         {
             string name = MessageService.InputBox("Введите имя для нового кошелька:");
 
+            if (string.IsNullOrEmpty(name))
+            {
+                return;
+            }
+
             using(MainContext db = new MainContext())
             {
                 Wallet newWallet = new Wallet()
                 {
-                    Name = name
+                    Name = name,
+                    AccountId = Variables.AccountId
                 };
 
-                Account thisAccount = db.Accounts.Find(Variables.AccountId);
-                thisAccount.Wallets.Add(newWallet);
+                db.Wallets.Add(newWallet);
 
                 db.SaveChanges();
 
@@ -81,6 +85,11 @@ namespace MyBudget.Dialogs
         private void EditWalletMenu_Click(object sender, EventArgs e)
         {
             string name = MessageService.InputBox("Введите новое имя для кошелька:");
+
+            if (string.IsNullOrEmpty(name))
+            {
+                return;
+            }
 
             Wallet walletForEdit = MainList.SelectedItem as Wallet;
 

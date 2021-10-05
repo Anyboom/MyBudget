@@ -11,6 +11,8 @@ namespace MyBudget.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
         public List<Wallet> Wallets { get; set; }
         public Account()
         {

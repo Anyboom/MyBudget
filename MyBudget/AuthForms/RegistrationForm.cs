@@ -51,7 +51,8 @@ namespace MyBudget
                 db.Accounts.Add(new Account()
                 {
                     Name = Name,
-                    Password = MD5Service.Create(Password)
+                    Password = MD5Service.Create(Password),
+                    CreatedAt = DateTime.Now
                 });
 
                 db.SaveChanges();
