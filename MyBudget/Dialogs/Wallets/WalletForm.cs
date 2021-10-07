@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace MyBudget.Dialogs
 {
-    public partial class AddWalletForm : Form
+    public partial class WalletForm : Form
     {
-        public AddWalletForm()
+        public WalletForm()
         {
             InitializeComponent();
         }

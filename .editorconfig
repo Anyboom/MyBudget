@@ -5,3 +5,6 @@ dotnet_analyzer_diagnostic.severity = none
 
 # CS8524: Выражение switch не обрабатывает некоторые типы входных значений, в том числе неименованное значение перечисления (не является исчерпывающим).
 dotnet_diagnostic.CS8524.severity = none
+
+# CS8509: Выражение switch обрабатывает не все возможные значения своего типа входных данных (оно не полное).
+dotnet_diagnostic.CS8509.severity = none

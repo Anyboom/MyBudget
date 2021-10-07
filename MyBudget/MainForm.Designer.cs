@@ -191,7 +191,7 @@ namespace MyBudget
             // WalletMenuItem
             // 
             this.WalletMenuItem.Name = "WalletMenuItem";
-            this.WalletMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.WalletMenuItem.Size = new System.Drawing.Size(180, 22);
             this.WalletMenuItem.Text = "Мои кошельки";
             this.WalletMenuItem.Click += new System.EventHandler(this.WalletMenuItem_Click);
             // 

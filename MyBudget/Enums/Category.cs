@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace MyBudget.Enums
 {
-    enum TypeTransaction
+    enum Category
     {
-        ADDED,
-        REMOVED
+        NONE,
+        CAR,
+        HEALTH,
+        TRANSLATION,
+        CASH_WITHDRAWAL
     }
 }

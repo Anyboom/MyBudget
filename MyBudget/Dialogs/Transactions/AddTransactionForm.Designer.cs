@@ -30,6 +30,8 @@ namespace MyBudget.Dialogs
         private void InitializeComponent()
         {
             this.MainGroup = new System.Windows.Forms.GroupBox();
+            this.CategoryLabel = new System.Windows.Forms.Label();
+            this.CategoryComboBox = new System.Windows.Forms.ComboBox();
             this.ActionButton = new System.Windows.Forms.Button();
             this.RemoveRadioButton = new System.Windows.Forms.RadioButton();
             this.AddRadioButton = new System.Windows.Forms.RadioButton();
@@ -40,6 +42,8 @@ namespace MyBudget.Dialogs
             // 
             // MainGroup
             // 
+            this.MainGroup.Controls.Add(this.CategoryLabel);
+            this.MainGroup.Controls.Add(this.CategoryComboBox);
             this.MainGroup.Controls.Add(this.ActionButton);
             this.MainGroup.Controls.Add(this.RemoveRadioButton);
             this.MainGroup.Controls.Add(this.AddRadioButton);
@@ -48,13 +52,33 @@ namespace MyBudget.Dialogs
             this.MainGroup.Location = new System.Drawing.Point(12, 12);
             this.MainGroup.Name = "MainGroup";
             this.MainGroup.Padding = new System.Windows.Forms.Padding(10, 5, 10, 10);
-            this.MainGroup.Size = new System.Drawing.Size(264, 94);
+            this.MainGroup.Size = new System.Drawing.Size(264, 121);
             this.MainGroup.TabIndex = 0;
             this.MainGroup.TabStop = false;
             // 
+            // CategoryLabel
+            // 
+            this.CategoryLabel.AutoSize = true;
+            this.CategoryLabel.Location = new System.Drawing.Point(13, 59);
+            this.CategoryLabel.Name = "CategoryLabel";
+            this.CategoryLabel.Size = new System.Drawing.Size(66, 15);
+            this.CategoryLabel.TabIndex = 6;
+            this.CategoryLabel.Text = "Категория:";
+            // 
+            // CategoryComboBox
+            // 
+            this.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CategoryComboBox.Enabled = false;
+            this.CategoryComboBox.FormattingEnabled = true;
+            this.CategoryComboBox.Location = new System.Drawing.Point(85, 56);
+            this.CategoryComboBox.Name = "CategoryComboBox";
+            this.CategoryComboBox.Size = new System.Drawing.Size(166, 23);
+            this.CategoryComboBox.TabIndex = 5;
+            this.CategoryComboBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.CategoryComboBox_Format);
+            // 
             // ActionButton
             // 
-            this.ActionButton.Location = new System.Drawing.Point(171, 58);
+            this.ActionButton.Location = new System.Drawing.Point(171, 85);
             this.ActionButton.Name = "ActionButton";
             this.ActionButton.Size = new System.Drawing.Size(80, 23);
             this.ActionButton.TabIndex = 4;
@@ -65,7 +89,7 @@ namespace MyBudget.Dialogs
             // RemoveRadioButton
             // 
             this.RemoveRadioButton.AutoSize = true;
-            this.RemoveRadioButton.Location = new System.Drawing.Point(97, 60);
+            this.RemoveRadioButton.Location = new System.Drawing.Point(97, 87);
             this.RemoveRadioButton.Name = "RemoveRadioButton";
             this.RemoveRadioButton.Size = new System.Drawing.Size(70, 19);
             this.RemoveRadioButton.TabIndex = 3;
@@ -77,13 +101,14 @@ namespace MyBudget.Dialogs
             // 
             this.AddRadioButton.AutoSize = true;
             this.AddRadioButton.Checked = true;
-            this.AddRadioButton.Location = new System.Drawing.Point(13, 60);
+            this.AddRadioButton.Location = new System.Drawing.Point(13, 87);
             this.AddRadioButton.Name = "AddRadioButton";
             this.AddRadioButton.Size = new System.Drawing.Size(83, 19);
             this.AddRadioButton.TabIndex = 2;
             this.AddRadioButton.TabStop = true;
             this.AddRadioButton.Text = "Зачислить";
             this.AddRadioButton.UseVisualStyleBackColor = true;
+            this.AddRadioButton.CheckedChanged += new System.EventHandler(this.AddRadioButton_CheckedChanged);
             // 
             // TotalTextBox
             // 
@@ -106,7 +131,7 @@ namespace MyBudget.Dialogs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(288, 116);
+            this.ClientSize = new System.Drawing.Size(288, 145);
             this.Controls.Add(this.MainGroup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -129,5 +154,7 @@ namespace MyBudget.Dialogs
         private System.Windows.Forms.Button ActionButton;
         private System.Windows.Forms.RadioButton RemoveRadioButton;
         private System.Windows.Forms.RadioButton AddRadioButton;
+        private System.Windows.Forms.Label CategoryLabel;
+        private System.Windows.Forms.ComboBox CategoryComboBox;
     }
 }

@@ -36,7 +36,7 @@ namespace MyBudget
 
         private void WalletMenuItem_Click(object sender, EventArgs e)
         {
-            AddWalletForm temp = new AddWalletForm();
+            WalletForm temp = new WalletForm();
             DialogResult result = temp.ShowDialog();
 
             using MainContext db = new MainContext();
@@ -51,12 +51,24 @@ namespace MyBudget
                 e.Value = timeFormat.ToString("g");
             }
 
-            if(e.Value is TypeTransaction typeFormat)
+            if(e.Value is Status typeFormat)
             {
                 e.Value = typeFormat switch
                 {
-                    TypeTransaction.ADDED => "Добавлено",
-                    TypeTransaction.REMOVED => "Списано"
+                    Status.ADDED => "Добавлено",
+                    Status.REMOVED => "Списано"
+                };
+            }
+
+            if (e.Value is Category category)
+            {
+                e.Value = category switch
+                {
+                    Category.CAR => "Машина",
+                    Category.CASH_WITHDRAWAL => "Выдача наличных",
+                    Category.HEALTH => "Здоровье",
+                    Category.TRANSLATION => "Перевод",
+                    _ => "Нет"
                 };
             }
         }
@@ -67,8 +79,8 @@ namespace MyBudget
             {
                 MainGrid.DataSource = db.Transactions.Where(c => c.Wallet.AccountId == Variables.AccountId && c.WalletId == (int) WalletComboBox.SelectedValue && c.CreatedAt.Month == (MonthComboBox.SelectedIndex + 1)).ToList();
 
-                long total = db.Transactions.Where(c => c.Wallet.AccountId == Variables.AccountId && c.WalletId == (int)WalletComboBox.SelectedValue && c.TypeTransaction == TypeTransaction.ADDED).Sum(c => c.Total),
-                     removed = db.Transactions.Where(c => c.Wallet.AccountId == Variables.AccountId && c.WalletId == (int)WalletComboBox.SelectedValue && c.TypeTransaction == TypeTransaction.REMOVED).Sum(c => c.Total);
+                long total = db.Transactions.Where(c => c.Wallet.AccountId == Variables.AccountId && c.WalletId == (int)WalletComboBox.SelectedValue && c.Status == Status.ADDED).Sum(c => c.Total),
+                     removed = db.Transactions.Where(c => c.Wallet.AccountId == Variables.AccountId && c.WalletId == (int)WalletComboBox.SelectedValue && c.Status == Status.REMOVED).Sum(c => c.Total);
 
                 TotalWalletValue.Text = $"{(total - removed)} р.";
             }
@@ -78,8 +90,9 @@ namespace MyBudget
         {
             MainGrid.Columns["Id"].HeaderText = "ИД";
             MainGrid.Columns["Total"].HeaderText = "СУММА";
-            MainGrid.Columns["TypeTransaction"].HeaderText = "СТАТУС";
+            MainGrid.Columns["Status"].HeaderText = "СТАТУС";
             MainGrid.Columns["CreatedAt"].HeaderText = "ДАТА";
+            MainGrid.Columns["Category"].HeaderText = "КАТЕГОРИЯ";
 
             MainGrid.Columns["WalletId"].Visible = false;
             MainGrid.Columns["Wallet"].Visible = false;

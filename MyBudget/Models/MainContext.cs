@@ -21,6 +21,7 @@ namespace MyBudget.Models
         {
             optionsBuilder.UseSqlServer(Variables.ConnectionString);
             optionsBuilder.LogTo(message => Debug.WriteLine(message));
+
         }
 
         public DbSet<Account> Accounts { get; set; }

@@ -1,7 +1,7 @@
 ﻿
 namespace MyBudget.Dialogs
 {
-    partial class AddWalletForm
+    partial class WalletForm
     {
         /// <summary>
         /// Required designer variable.

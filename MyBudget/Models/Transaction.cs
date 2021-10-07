@@ -13,8 +13,9 @@ namespace MyBudget.Models
         public int Id { get; set; }
         public long Total { get; set; }
         public DateTime CreatedAt { get; set; }
-        public TypeTransaction TypeTransaction { get; set; }
+        public Status Status { get; set; }
         public int WalletId { get; set; }
         public Wallet Wallet { get; set; }
+        public Category Category { get; set; }
     }
 }
